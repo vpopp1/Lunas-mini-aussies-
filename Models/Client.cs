@@ -1,34 +1,38 @@
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+
 namespace Puppy.Models
 {
     public class Client 
     {
         public int ClientID {get;set;}
 
-       // [BindProperty]
-        //[StringLength(25, MinimunLength = 2)]
-        //[Display(Name = "First Name")]
-        //[Required]
+        //[BindProperty]
+        [StringLength(25)]
+        [Display(Name = "First Name")]
+        [Required]
         public string? CName {get;set;}
 
         //[BindProperty]
-        //[StringLength(25, MinimunLength = 2)]
-        //[Display(Name = "Last Name")]
-        //[Required]
+        [StringLength(25)]
+        [Display(Name = "Last Name")]
+        [Required]
         public string? LName {get;set;}
 
         //[BindProperty]
-        //[StringLength(25, MinimunLength = 2)]
-        //[Display(Name = "Email")]
-        //[Required]
+        [DataType(DataType.EmailAddress)]
+        [StringLength(25)]
+        [Display(Name = "Email")]
+        [Required]
         public string? email {get;set;}
 
         //[BindProperty]
-        //[StringLength(25, MinimunLength = 2)]
-        //[Display(Name = "Phone Number")]
-        //[Required]
-        public int phone {get;set;} 
+        [DataType(DataType.PhoneNumber)]
+        [StringLength(10)]
+        [Display(Name = "Phone Number")]
+        public string? phone {get;set;} 
 
-        public List<Puppy> Puppy {get;set;} = new List<Puppy>();
+        public List<Puppy> Puppys {get;set;} = new List<Puppy>();
     } 
 
 }

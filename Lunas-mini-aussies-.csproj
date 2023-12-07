@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Lunas_mini_aussies_</RootNamespace>
+    <property> GenerateFullPaths=true</property>
   </PropertyGroup>
 
   <ItemGroup>

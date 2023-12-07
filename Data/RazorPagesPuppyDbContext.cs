@@ -13,4 +13,5 @@ using Puppy.Models;
         }
 
         public DbSet<Puppy.Models.Puppy> Puppy { get; set; } = default!;
-    }
+        public DbSet<Puppy.Models.Client> Client {get; set; } = default!;
+}

@@ -35,7 +35,9 @@ namespace Lunas_mini_aussies_.PagesPuppies
                 return Page();
             }
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             _context.Puppy.Add(Puppy);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

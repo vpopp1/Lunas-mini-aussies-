@@ -53,6 +53,15 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Puppy.dad)
         </dd>
+        @foreach(var c in Model.Puppy.Client)
+        {
+            <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Puppy.Client.CName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Puppy.Client.CName)
+        </dd>
+        }
     </dl>
 </div>
 <div>

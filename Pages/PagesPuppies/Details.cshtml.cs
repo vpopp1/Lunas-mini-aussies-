@@ -27,7 +27,7 @@ namespace Lunas_mini_aussies_.PagesPuppies
                 return NotFound();
             }
 
-            var puppy = await _context.Puppy.FirstOrDefaultAsync(m => m.PuppyID == id);
+            var puppy = await _context.Puppy.Include(m=> m.Client).FirstOrDefaultAsync(m => m.PuppyID == id);
             if (puppy == null)
             {
                 return NotFound();

@@ -7,9 +7,9 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Lunas-mini-aussies.csproj",
+                "${workspaceFolder}/Lunas-mini-aussies-.csproj",
                 "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -19,9 +19,9 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/Lunas-mini-aussies.csproj",
+                "${workspaceFolder}/Lunas-mini-aussies-.csproj",
                 "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/Lunas-mini-aussies.csproj"
+                "${workspaceFolder}/Lunas-mini-aussies-.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

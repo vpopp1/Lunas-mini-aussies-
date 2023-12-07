@@ -18,7 +18,7 @@ namespace Lunas_mini_aussies_.PagesPuppies
             _context = context;
         }
 
-        [BindProperty]
+       [BindProperty]
       public Puppy Puppy { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)

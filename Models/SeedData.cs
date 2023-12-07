@@ -13,13 +13,14 @@ using Microsoft.EntityFrameworkCore;
              {
                 return; // DB has been seeded
              }
- 
              context.Puppies.AddRange(
+                 
                 new Puppy{Name = "Sophie", Height =15, Weight =19, Gender = "Female", Temp= "Likes to jump and run, but quiet, listens, loves kids and cats, quick learner.", mom="Lexie", dad="Twister"},
                 new Puppy{Name = "Sterling", Height =14, Weight =25, Gender = "M", Temp= "Relaxed couch potato, outdoors and alone-territorial, otherwise calm and quiet. Loves children/babies", mom="Dally", dad="Ryder"},
                 new Puppy{Name = "Ryder", Height =15, Weight =35, Gender = "M", Temp= "Couch potato when outside energetic loves to run, not a dominant male, calm indoors and around children, prefers adult females. ", mom="Lexi", dad="Rooster"},
                 new Puppy{Name = "Raya", Height =17, Weight =42, Gender ="F", Temp= "High energy levels, territorial when outdoors, runs into the walls, intelligent, lets anyone touch her.", mom="Lexi", dad="Rooster"},
-                new Puppy{Name = "Raven", Height =18, Weight =45, Gender = "F", Temp= "High energy, does not like being touched by outsiders, good with kids and other dogs, calm indoors.", mom="Dally", dad="Twister"},
+                new Puppy{Name = "Raven", Height =18, Weight =45, Gender = "F", Temp= "High energy, does not like being touched by outsiders, good with kids and other dogs, calm indoors.", mom="Dally", dad="Twister"},    
+                new Puppy{Name = "Rocky", Height =19, Weight =59, Gender = "M", Temp= "Loves to be outside, high energy levels, eats non-stop, destructive if bored and unattended.", mom="Dally", dad="Ryder"},
                 new Puppy{Name = "Velvet", Height =15, Weight =30, Gender = "F", Temp= "Working dog energy levels, herds, playful with kids but not pushing boundardies.", mom="Raya", dad="Twister"},
                 new Puppy{Name = "Oakley", Height =20, Weight =65, Gender = "M", Temp= "Fluff ball of cuddles, thinks he's a lap dog, quiet, calm, loves attention whines when he comes second.", mom="Raya", dad="Twister"},
                 new Puppy{Name = "Breezy", Height =18, Weight =50, Gender = "M", Temp= "Trouble maker if you turn your back, very playful, has an attitude, not well with other males.", mom="Raya", dad="Twister"},
@@ -28,7 +29,6 @@ using Microsoft.EntityFrameworkCore;
                 new Puppy{Name = "Gumbo", Height =16, Weight =51, Gender = "M", Temp= "High energy levels, loves kids and knows no stranger, hogs the bed.", mom="Lexi", dad="Twister"},
                 new Puppy{Name = "Clover", Height =14, Weight =36, Gender = "F", Temp= "Sweet, calm, eats everything and anything-hide shoes, rather go for walks.", mom="Lexi", dad="Twister"},
                 new Puppy{Name = "Mardi", Height =16.5, Weight =28, Gender = "M", Temp= "Loves car rides, calm indoors, high energy for about 20min, then naptime, great with cats and kids. ", mom="Lexi", dad="Twister"},
-                new Puppy{Name = "Rocky", Height =19, Weight =59, Gender = "M", Temp= "Loves to be outside, high energy levels, eats non-stop, destructive if bored and unattended.", mom="Dally", dad="Ryder"},
                 new Puppy{Name = "Lacy", Height =18, Weight =45, Gender = "F", Temp= "High energy levels, outdoors dog, calm with kids but would rather be moving.", mom="Dally", dad="Twister"},
                 new Puppy{Name = "Shadow", Height =17, Weight =49, Gender = "M", Temp= "High energy working dog, chases strangers, doesn't like going inside.", mom="Dally", dad="Twister"},
                 new Puppy{Name = "Aspen", Height =18.5, Weight =45, Gender = "M", Temp= "Loves to run, fetch, swim, needs activity, chews shoes, and steals sandwiches. ", mom="Dally", dad="Twister"},
@@ -39,10 +39,15 @@ using Microsoft.EntityFrameworkCore;
                 new Puppy{Name = "Thor", Height =13, Weight =30, Gender = "M", Temp= "Lounger, enjoys naps and sunbathing, until water is involved then high energy.", mom="Aurora", dad="Rocky"},
                 new Puppy{Name = "Apollo", Height =14, Weight =34, Gender = "M", Temp= "Play energy levels, food driven, loves naps and car rides. ", mom="Aurora", dad="Rocky"},
                 new Puppy{Name = "Athena", Height =11, Weight =22, Gender = "F", Temp= "Playful, slight attitude, very intelligent, loves to cuddle.", mom="Aurora", dad="Rocky"});
-
-
             
- context.SaveChanges();
+            context.Client.AddRange(
+                new Client {CName = "James", LName = "Zachary", email = "jz20@gmail.com", Puppys = new List<Puppy>{ new Puppy{PuppyID = 0}, new Puppy{PuppyID = 1}} },
+                new Client {CName = "Olivia", LName="Spensor", email="olr220@gmail.com",Puppys = new List<Puppy>{ new Puppy{PuppyID = 2}, new Puppy{PuppyID = 3}, new Puppy{PuppyID = 4}}},
+                new Client {CName = "Tucker", LName="Correll", email="tucktuck@yahoo.com", phone = "8061231234",Puppys = new List<Puppy>{ new Puppy{PuppyID = 5}, new Puppy{PuppyID = 17}, new Puppy{PuppyID = 22}}},
+                new Client {CName = "Liam", LName="Kade", email = "lkp21@gmail.com"}
+                );
+
+             context.SaveChanges();
             }
         }
     }
