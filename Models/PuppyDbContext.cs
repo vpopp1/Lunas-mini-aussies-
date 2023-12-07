@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 			: base(options)
 		{
 		}
-		public DbSet<Puppy> Puppies {get; set;} = default!;
+		public DbSet<Puppy> Puppy {get; set;} = default!;
 		public DbSet<Client> Client {get;set;} = default!;
 	}
 }

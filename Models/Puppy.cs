@@ -1,10 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+
 namespace Puppy.Models 
 {
     public class Puppy
     {
         public int PuppyID {get;set;}
 
-        //[BindProperty]
+       // [BindProperty]
        // [StringLength(25, MinimunLength = 2)]
         //[Display(Name = "Puppy's Name")]
         //[Required]
