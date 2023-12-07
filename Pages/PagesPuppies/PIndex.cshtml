@@ -20,6 +20,13 @@
   </button>
 </div>
 <hr />
+<form>
+	<select asp-for="CurrentSort" asp-items="Model.SortPups">
+		<option value="">sort by...</option>
+	</select>
+	<button type="submit">Sort</button>
+</form>
+<hr />
 <table class="table">
     <thead>
         <tr>
