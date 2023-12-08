@@ -5,17 +5,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Lunas_mini_aussies.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Puppy.Models;
 
 namespace Lunas_mini_aussies_.PagesPuppies
 {
     public class IndexModel : PageModel
     {
-        private readonly RazorPagesPuppyDbContext _context;
+        private readonly Lunas_mini_aussies.Models.PuppyDbContext _context;
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        public IndexModel(RazorPagesPuppyDbContext context)
+        public IndexModel(Lunas_mini_aussies.Models.PuppyDbContext context)
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             _context = context;
@@ -36,18 +36,20 @@ namespace Lunas_mini_aussies_.PagesPuppies
 
         public async Task OnGetAsync()
         {
-            if (_context.Puppy != null)
+           if (_context.Puppies != null)
             {
                 List<SelectListItem> sortItems = new List<SelectListItem> {
-	            new SelectListItem { Text = "FirstName Ascending", Value = "first_asc" },
-	            new SelectListItem { Text = "FirstName Descending", Value = "first_desc"},
+	            new SelectListItem { Text = "First Name Ascending", Value = "first_asc" },
+	            new SelectListItem { Text = "First Name Descending", Value = "first_desc"},
                 new SelectListItem { Text = "Mom", Value = "third_asc" },
 	            new SelectListItem { Text = "Height Descending", Value = "fourth_desc"},
-        };
+                };
             SortPups = new SelectList(sortItems, "Value", "Text", CurrentSort);
-            
-                Puppy = (IList<Puppy>)await _context.Puppy.Skip((PageNum-1)*PageSize).Take(PageSize).ToListAsync();
+
+                Puppy = await _context.Puppies.Include(p => p.Client).ToListAsync(); 
+                Puppy = await _context.Puppies.Skip((PageNum-1)*PageSize).Take(PageSize).ToListAsync();
             }
         }
+    
     }
 }

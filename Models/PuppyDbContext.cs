@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-namespace Puppy.Models
+namespace Lunas_mini_aussies.Models
 {
 	public class PuppyDbContext : DbContext
 	{
@@ -7,8 +7,9 @@ using Microsoft.EntityFrameworkCore;
 			: base(options)
 		{
 		}
-		public DbSet<Puppy> Puppies {get; set;} = default!;
-		public DbSet<Client> Client {get;set;} = default!;
+		public DbSet<Client> Client {get;set;} = default!;
+		public DbSet<Puppy> Puppies {get; set;} = default!;
+		
 
     }
 }

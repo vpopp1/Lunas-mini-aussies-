@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-namespace Puppy.Models
+namespace Lunas_mini_aussies.Models
 {
         public static class SeedData
 {
@@ -8,14 +8,28 @@ using Microsoft.EntityFrameworkCore;
             using (var context = new PuppyDbContext(
                 serviceProvider.GetRequiredService<DbContextOptions<PuppyDbContext>>()))
              {
+            
+            if (context.Client.Any())
+            {
+                return;
+            }
+                context.Client.AddRange(
+                new Client {CName = "James", LName = "Zachary", email = "jz20@gmail.com"},
+                new Client {CName = "Olivia", LName="Spensor", email="olr220@gmail.com"},
+                new Client {CName = "Tucker", LName="Correll", email="tucktuck@yahoo.com", phone = "8061231234"},
+                new Client {CName = "Liam", LName="Kade", email = "lkp21@gmail.com"}
+                );
+            context.SaveChanges();
 
             if (context.Puppies.Any())
              {
                 return; // DB has been seeded
              }
+               
+            
              context.Puppies.AddRange(
-                 
-                new Puppy{Name = "Sophie", Height =15, Weight =19, Gender = "Female", Temp= "Likes to jump and run, but quiet, listens, loves kids and cats, quick learner.", mom="Lexie", dad="Twister"},
+
+                new Puppy { Name = "Sophie", Height = 15, Weight = 19, Gender = "Female", Temp = "Likes to jump and run, but quiet, listens, loves kids and cats, quick learner.", mom = "Lexie", dad = "Twister"},
                 new Puppy{Name = "Sterling", Height =14, Weight =25, Gender = "M", Temp= "Relaxed couch potato, outdoors and alone-territorial, otherwise calm and quiet. Loves children/babies", mom="Dally", dad="Ryder"},
                 new Puppy{Name = "Ryder", Height =15, Weight =35, Gender = "M", Temp= "Couch potato when outside energetic loves to run, not a dominant male, calm indoors and around children, prefers adult females. ", mom="Lexi", dad="Rooster"},
                 new Puppy{Name = "Raya", Height =17, Weight =42, Gender ="F", Temp= "High energy levels, territorial when outdoors, runs into the walls, intelligent, lets anyone touch her.", mom="Lexi", dad="Rooster"},
@@ -38,16 +52,11 @@ using Microsoft.EntityFrameworkCore;
                 new Puppy{Name = "Blondie", Height =15.5, Weight =30, Gender = "F", Temp= "Quick learn but will only do things with food as a reward, calm indoors, loves everyone.", mom="Lexi", dad="Rooster"},
                 new Puppy{Name = "Thor", Height =13, Weight =30, Gender = "M", Temp= "Lounger, enjoys naps and sunbathing, until water is involved then high energy.", mom="Aurora", dad="Rocky"},
                 new Puppy{Name = "Apollo", Height =14, Weight =34, Gender = "M", Temp= "Play energy levels, food driven, loves naps and car rides. ", mom="Aurora", dad="Rocky"},
-                new Puppy{Name = "Athena", Height =11, Weight =22, Gender = "F", Temp= "Playful, slight attitude, very intelligent, loves to cuddle.", mom="Aurora", dad="Rocky"});
-            
-            context.Client.AddRange(
-                new Client {CName = "James", LName = "Zachary", email = "jz20@gmail.com", Puppys = new List<Puppy>{ new Puppy{PuppyID = 0}, new Puppy{PuppyID = 1}} },
-                new Client {CName = "Olivia", LName="Spensor", email="olr220@gmail.com",Puppys = new List<Puppy>{ new Puppy{PuppyID = 2}, new Puppy{PuppyID = 3}, new Puppy{PuppyID = 4}}},
-                new Client {CName = "Tucker", LName="Correll", email="tucktuck@yahoo.com", phone = "8061231234",Puppys = new List<Puppy>{ new Puppy{PuppyID = 5}, new Puppy{PuppyID = 17}, new Puppy{PuppyID = 22}}},
-                new Client {CName = "Liam", LName="Kade", email = "lkp21@gmail.com"}
-                );
-
+                new Puppy{Name = "Athena", Height =11, Weight =22, Gender = "F", Temp= "Playful, slight attitude, very intelligent, loves to cuddle.", mom="Aurora", dad="Rocky"},
+                new Puppy{Name = "Pearl", Height = 12.5, Weight = 25, Gender = "F", Temp = "Spoiled princess, wants attention when lounging around.", mom = "Lexi", dad="Twister"});
+          
              context.SaveChanges();
+
             }
         }
     }

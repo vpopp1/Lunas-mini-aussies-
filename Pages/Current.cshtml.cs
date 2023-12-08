@@ -5,16 +5,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Puppy.Models;
+using Lunas_mini_aussies.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Lunas_mini_aussies_.PagesPuppies
 {
     public class CurrentModel : PageModel
     {
-        private readonly RazorPagesPuppyDbContext _context;
+        private readonly PuppyDbContext _context;
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        public CurrentModel(RazorPagesPuppyDbContext context)
+        public CurrentModel(PuppyDbContext context)
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             _context = context;
@@ -31,6 +32,7 @@ namespace Lunas_mini_aussies_.PagesPuppies
         {
             if (_context.Client != null)
             {
+                Client = await _context.Client.Include(c=>c.Puppys).ToListAsync();
                 Client = await _context.Client.Include(c => c.Puppys).Skip((PageNumC-1)*PageSizeC).Take(PageSizeC).ToListAsync();
             }
         }

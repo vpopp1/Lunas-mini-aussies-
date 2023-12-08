@@ -18,42 +18,23 @@
                 @Html.DisplayNameFor(model => model.Client[0].CName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Client.Puppys[0].PuppyID)
+                @Html.DisplayNameFor(model => model.Client[0].Puppys)
             </th>
        <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Client.Puppys) {
+       @foreach (var item in Model.Client) 
+       {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.CName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Height)
+                @Html.DisplayFor(modelItem => item.Puppys)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Weight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Temp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.mom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dad)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.PuppyID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.PuppyID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.PuppyID">Delete</a>
-            </td>
-        </tr>
-}
+            </tr>
+            }
     </tbody>
 </table>
 <hr />
@@ -66,9 +47,9 @@
     }
     var a = Model.Client.Count();
     var b = a / Model.PageSizeC;
-    decimal c = Math.Ceiling(b);
+    //decimal c = Math.Ceiling(b);
     var nextDisabled = "";
-    if ((Model.PageNumC + 1) ==c )
+    if ((Model.PageNumC + 1) ==b )
     {
         nextDisabled = "disabled";
     }

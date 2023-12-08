@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Puppy.Models 
+namespace Lunas_mini_aussies.Models
 {
     public class Puppy
     {
@@ -48,7 +50,9 @@ namespace Puppy.Models
         [Required]
         public string? dad {get;set;}
 
-        public Client? Client {get;set;}
-        //public object Puppy { get; internal set; } 
-    }
-}
+        public Client Client {get;set;} = null!;
+       
+        public int? ClientID {get;set;}
+       // [ForeignKey(ClientID)] 
+   
+    }}

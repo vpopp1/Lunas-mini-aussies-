@@ -1,4 +1,4 @@
-using Puppy.Models;
+using Lunas_mini_aussies.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -6,8 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<RazorPagesPuppyDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("RazorPagesPuppyDbContext") ?? throw new InvalidOperationException("Connection string 'RazorPagesPuppyDbContext' not found.")));
 
 builder.Services.AddDbContext<PuppyDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("PuppyContext"))); 

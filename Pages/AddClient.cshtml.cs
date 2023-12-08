@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Puppy.Models;
+using Lunas_mini_aussies.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Lunas_mini_aussies_.PagesPuppies

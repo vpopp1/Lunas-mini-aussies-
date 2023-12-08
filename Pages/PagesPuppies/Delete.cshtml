@@ -54,6 +54,18 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Puppy.dad)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Puppy.Client)
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                if (Model.Puppy.Client is not null)
+                {
+                    @Html.DisplayFor(model => Model.Puppy.Client.CName)
+                }
+            }
+            
+        </dd>
     </dl>
     
     <form method="post">

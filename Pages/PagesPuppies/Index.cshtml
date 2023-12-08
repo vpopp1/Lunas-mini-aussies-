@@ -51,6 +51,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Puppy[0].dad)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Puppy[0].Client)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -79,16 +82,17 @@
                 @Html.DisplayFor(modelItem => item.dad)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.ClientID)
+            </td>
+            <td>
                 <a asp-page="./Edit" asp-route-id="@item.PuppyID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.PuppyID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.PuppyID">Delete</a>
-            </td>
+                </td>
         </tr>
 }
     </tbody>
 </table>
-<hr />
-
 @{
     var prevDisabled ="";
     if (Model.PageNum<=1)
@@ -97,9 +101,10 @@
     }
     var x = Model.Puppy.Count();
     var y = x / Model.PageSize;
-    decimal z = Math.Ceiling(y);
+    //var z = decimal.Round(y, MidpointRounding.AwayFromZero);
+
     var nextDisabled = "";
-    if ((Model.PageNum + 1) ==z )
+    if  ((Model.PageNum + 1) <=y )
     {
         nextDisabled = "disabled";
     }

@@ -1,7 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
-namespace Puppy.Models
+namespace Lunas_mini_aussies.Models
 {
     public class Client 
     {

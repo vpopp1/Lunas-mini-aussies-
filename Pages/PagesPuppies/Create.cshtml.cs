@@ -5,21 +5,22 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Puppy.Models;
+using Lunas_mini_aussies.Models;
 
 namespace Lunas_mini_aussies_.PagesPuppies
 {
     public class CreateModel : PageModel
     {
-        private readonly RazorPagesPuppyDbContext _context;
+        private readonly Lunas_mini_aussies.Models.PuppyDbContext _context;
 
-        public CreateModel(RazorPagesPuppyDbContext context)
+        public CreateModel(Lunas_mini_aussies.Models.PuppyDbContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
+        ViewData["ClientID"] = new SelectList(_context.Client, "ClientID", "CName");
             return Page();
         }
 
@@ -30,14 +31,12 @@ namespace Lunas_mini_aussies_.PagesPuppies
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Puppy == null || Puppy == null)
+          if (!ModelState.IsValid || _context.Puppies == null || Puppy == null)
             {
                 return Page();
             }
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            _context.Puppy.Add(Puppy);
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            _context.Puppies.Add(Puppy);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

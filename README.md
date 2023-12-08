@@ -25,3 +25,6 @@ run correct the program added those lines
 addClient razorpage and model done, modeled after the create puppy page giving the client a drop down box to ad 1-3 choices on avaliable pups 
 
 added the paging code to both index.cshtml and index.cshtml.cs, for previous page if pagenum was less than or equal to 1 it would disable, for next linq to count puppies in list, then answer divided by page size, then rounded up and if pagenum +1 = to the answer it would disable. 
+
+Redid the scaffolding and corrected the issues, 
+the foreign key ClientID would double if it was used to connect the puppies to a client, so there are clients but no lists of puppies
